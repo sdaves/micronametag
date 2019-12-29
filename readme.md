@@ -2,6 +2,14 @@
 
 Digital nametag with endless posibilities. Pure python microcontroller programming using an ESP8266 with an OLED display and MicroPython. All you need after setting up your device is a web browser to access the web console and start coding offline.
 
+# Hardware
+
+![DevBoard](https://i.imgur.com/tBAKK0w.png)
+
+[ESP8266 Dev Board](https://heltec.org/project/wifi-kit-8/)
+
+Open Hardware & Open Software
+
 ## Requirements
 
 - Install git `https://git-scm.com/downloads`
