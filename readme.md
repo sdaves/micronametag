@@ -33,6 +33,7 @@ Open Hardware & Open Software
     cd micronametag
     python3 -m venv venv
     . venv/bin/activate
+    cd apps/nametag
     
     # with system make
     make setup 
