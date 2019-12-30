@@ -1,7 +1,6 @@
 # micronametag
 
-Digital nametag with endless posibilities. Pure python microcontroller programming using an ESP8266 with an OLED display and MicroPython. All you need after setting up your device is a web browser to access the web console and start coding offline.
-
+Digital nametag with endless posibilities. Pure python microcontroller programming using an ESP8266 with an OLED display and MicroPython. After device setup use a web browser to code offline.
 # Hardware
 
 ![DevBoard](https://i.imgur.com/tBAKK0w.png)
