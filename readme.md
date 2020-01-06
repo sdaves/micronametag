@@ -1,6 +1,7 @@
 # micronametag
 
 Digital nametag with endless posibilities. Pure python microcontroller programming using an ESP8266 with an OLED display and MicroPython. After device setup use a web browser to code offline.
+
 # Hardware
 
 ![DevBoard](https://i.imgur.com/tBAKK0w.png)
@@ -29,39 +30,25 @@ Open Hardware & Open Software
 ## Setup development tools (all platforms)
 
     git clone https://github.com/sdaves/micronametag
-    cd micronametag
-    python3 -m venv venv
-    . venv/bin/activate
-    cd apps/nametag
+    cd micronametag/apps/nametag
+    python3 -m venv ../../venv
+    source ../../venv/bin/activate
+    pip install py-make
+    pymake setup # or make setup
     
-    # with system make
-    make setup 
+## Settings
     
-    # or
-    
-    # without system make
-    python3 -m pip install py-make
-    python3 -m pymake setup
+Copy the `.envtemplate` file to a new file called `.env` and edit with a text editor to customize application settings.
 
 ## Upload
 
-    # with system make
-    make upload
-    
-    # or
-    
-    # without system make
-    python3 -m pymake upload
+    source ../../venv/bin/activate
+    pymake upload # or make upload
 
 ## Serial Console
 
-    # with system make
-    make serial
-    
-    # or
-    
-    # without system make
-    python3 -m pymake serial
+    source ../../venv/bin/activate
+    pymake serial # or make serial
 
 ## Help
 

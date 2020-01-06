@@ -3,7 +3,7 @@ The MIT License (MIT)
 Copyright © 2018 Jean-Christophe Bos & HC² (www.hc2.fr)
 """
 
-from microWebCli import MicroWebCli
+from .microWebCli import MicroWebCli
 from time        import gmtime, mktime
 
 class MicroRESTCli :

@@ -1,5 +1,5 @@
-import nametag
-nametag.show(' -Stephen Daves-')
+from lib.nametag import show_all
+show_all()
 
-import TestWebServer
-TestWebServer.main()
+import server
+server.main()

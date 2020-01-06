@@ -1,27 +1,13 @@
-import ESP8266WebServer
+import lib.ESP8266WebServer as server
+from lib.decouple import config
 import network
 import machine
 
-GPIO_NUM = 2 # Builtin led
+GPIO_NUM = config('GPIO_NUM', 2, int) # Builtin led
 
 # Wi-Fi configuration
-STA_SSID = "net"
-STA_PSK = "password"
-
-# HTML content for "/"
-rootPage = """\
-  <!DOCTYPE html>
-  <head>
-    <meta charset='UTF-8'>
-  </head>
-  <title>{0}</title>
-  <body>
-    {0}Status：<span style='color:{1}'>{2}</span><br>
-    <a href='/cmd?led={3}'>{4}</a><br>
-    <a href='/'>HOME</a>
-  </body>
-  </html>
-  """
+STA_SSID = config('WIFI_SSID')
+STA_PSK = config('WIFI_PSK')
 
 # Disable AP interface
 ap_if = network.WLAN(network.AP_IF)
@@ -58,7 +44,7 @@ def handleRoot(socket, args):
     "Turn on" if pin.value() else "Turn off"
   )
   # Return the HTML page
-  ESP8266WebServer.ok(socket, "200", response)
+  server.ok(socket, "200", response)
 
 # Handler for path "/cmd?led=[on|off]"    
 def handleCmd(socket, args):
@@ -69,31 +55,31 @@ def handleCmd(socket, args):
       pin.on()
     handleRoot(socket, args)
   else:
-    ESP8266WebServer.err(socket, "400", "Bad Request")
+    server.err(socket, "400", "Bad Request")
 
 # handler for path "/switch" 
 def handleSwitch(socket, args):
   pin.value(not pin.value()) # Switch back and forth
-  ESP8266WebServer.ok(
+  server.ok(
     socket, 
     "200", 
     "On" if pin.value() == 0 else "Off")
 
-# Start the server @ port 8899
-ESP8266WebServer.begin(80)
+def main(port=80):
+  # Start the server
+  server.begin(port)
 
-# Register handler for each path
-ESP8266WebServer.onPath("/info", handleRoot)
-ESP8266WebServer.onPath("/cmd", handleCmd)
-ESP8266WebServer.onPath("/switch", handleSwitch)
+  # Register handler for each path
+  server.onPath("/info", handleRoot)
+  server.onPath("/cmd", handleCmd)
+  server.onPath("/switch", handleSwitch)
 
-# Setting the path to documents
-#ESP8266WebServer.setDocPath("/")
+  # Setting the path to documents
+  server.setDocPath("/www")
 
-def main():
   try:
     while True:
       # Let server process requests
-      ESP8266WebServer.handleClient()
+      server.handleClient()
   except:
-    ESP8266WebServer.close()
+    server.close()
