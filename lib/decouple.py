@@ -130,7 +130,8 @@ class AutoConfig(object):
         self.config = None
 
     def _load(self, path):
-        self.config = Config(RepositoryEnv('/.env', encoding=self.encoding))
+        rep = RepositoryEnv if '.env' in os.listdir() else RepositoryEmpty
+        self.config = Config(rep('.env', encoding=self.encoding))
 
     def _caller_path(self):
         return '/'
