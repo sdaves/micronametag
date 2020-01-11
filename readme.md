@@ -30,15 +30,19 @@ Open Hardware & Open Software
 ## Setup development tools (all platforms)
 
     git clone https://github.com/sdaves/micronametag
-    cd micronametag/apps/nametag
+    cd examples/nametag
     python3 -m venv ../../venv
     source ../../venv/bin/activate
     pip install py-make
     pymake setup # or make setup
     
-## Settings
+## Security
     
-Copy the `.envtemplate` file to a new file called `.env` and edit with a text editor to customize application settings.
+Copy the `.envtemplate` file to a new file called `.env` and edit the following application security settings:
+
+    WEBREPL_PASSWORD=WEBREPL_PASSWORD_
+    WIFI_SSID=net
+    WIFI_PSK=password
 
 ## Upload
 

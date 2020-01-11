@@ -15,6 +15,6 @@ jobs:
         python-version: 3.6
     - name: Test with pytest
       run: |
-        cp apps/nametag/.envtemplate .env
+        cp examples/nametag/.envtemplate .env
         pip install pytest
         PYTHONPATH=. pytest

@@ -5,7 +5,7 @@
 import uos, machine
 #uos.dupterm(None, 1) # disable REPL on UART(0)
 
-from lib.decouple import config
+from micronametag.decouple import config
 if config('WEBREPL_PASSWORD', False):
     import webrepl
     webrepl.start()

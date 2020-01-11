@@ -3,25 +3,30 @@
 import time
 import framebuf
 
+def c(arg):
+    try:
+        return const(arg) # noqa: F821
+    except:
+        return arg
 
 # register definitions
-SET_CONTRAST        = const(0x81)
-SET_ENTIRE_ON       = const(0xa4)
-SET_NORM_INV        = const(0xa6)
-SET_DISP            = const(0xae)
-SET_MEM_ADDR        = const(0x20)
-SET_COL_ADDR        = const(0x21)
-SET_PAGE_ADDR       = const(0x22)
-SET_DISP_START_LINE = const(0x40)
-SET_SEG_REMAP       = const(0xa0)
-SET_MUX_RATIO       = const(0xa8)
-SET_COM_OUT_DIR     = const(0xc0)
-SET_DISP_OFFSET     = const(0xd3)
-SET_COM_PIN_CFG     = const(0xda)
-SET_DISP_CLK_DIV    = const(0xd5)
-SET_PRECHARGE       = const(0xd9)
-SET_VCOM_DESEL      = const(0xdb)
-SET_CHARGE_PUMP     = const(0x8d)
+SET_CONTRAST        = c(0x81)
+SET_ENTIRE_ON       = c(0xa4)
+SET_NORM_INV        = c(0xa6)
+SET_DISP            = c(0xae)
+SET_MEM_ADDR        = c(0x20)
+SET_COL_ADDR        = c(0x21)
+SET_PAGE_ADDR       = c(0x22)
+SET_DISP_START_LINE = c(0x40)
+SET_SEG_REMAP       = c(0xa0)
+SET_MUX_RATIO       = c(0xa8)
+SET_COM_OUT_DIR     = c(0xc0)
+SET_DISP_OFFSET     = c(0xd3)
+SET_COM_PIN_CFG     = c(0xda)
+SET_DISP_CLK_DIV    = c(0xd5)
+SET_PRECHARGE       = c(0xd9)
+SET_VCOM_DESEL      = c(0xdb)
+SET_CHARGE_PUMP     = c(0x8d)
 
 
 class SSD1306:

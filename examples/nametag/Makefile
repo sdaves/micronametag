@@ -1,8 +1,8 @@
 .PHONY: setup upload serial
 setup:
 	python3 -m pip install pyserial esptool adafruit-ampy py-make
-	ampy -p /dev/ttyUSB0 put ../../www
-	ampy -p /dev/ttyUSB0 put ../../lib
+	ampy -p /dev/ttyUSB0 put www
+	ampy -p /dev/ttyUSB0 put ../../microthings
 serial:
 	python3 -m serial.tools.miniterm /dev/ttyUSB0 115200
 upload:  

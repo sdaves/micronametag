@@ -1,5 +1,5 @@
-import lib.ESP8266WebServer as server
-from lib.decouple import config
+import micronametag.ESP8266WebServer as server
+from micronametag.decouple import config
 import network
 import machine
 
@@ -75,7 +75,7 @@ def main(port=80):
   server.onPath("/switch", handleSwitch)
 
   # Setting the path to documents
-  server.setDocPath("/www")
+  server.setDocPath("./www-console")
 
   try:
     while True:
