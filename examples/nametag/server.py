@@ -75,7 +75,7 @@ def main(port=80):
   server.onPath("/switch", handleSwitch)
 
   # Setting the path to documents
-  server.setDocPath("./www-console")
+  server.setDocPath("/www")
 
   try:
     while True:
